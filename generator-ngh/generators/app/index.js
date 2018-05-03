@@ -21,21 +21,16 @@ module.exports = class extends Generator {
       let camelWords = []
       words.forEach(word => {
         let  w
-        if(word == word[0]){
-          w = word.toLowerCase()
-        }
-        else{
-          w = word.charAt(0).toUpperCase() + word.toLowerCase().slice(1)
-        }
+        w = word.charAt(0).toUpperCase() + word.toLowerCase().slice(1)
         camelWords.push(w)
       });
       props.lowerCamelCaseName = camelWords.join('')
+      props.lowerCamelCaseName = props.lowerCamelCaseName.charAt(0).toLowerCase() + props.lowerCamelCaseName.slice(1)
 
       //dash the words
       props.dashedName = words.join('-').toLowerCase();
 
       this.props = props;
-      console.log(this.props);
     });
   }
 
