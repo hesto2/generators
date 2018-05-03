@@ -41,15 +41,15 @@ module.exports = class extends Generator {
 
   writing() {
     this.fs.copyTpl( this.templatePath('component/index.js'),
-      this.destinationPath(`./${this.props.dashedName}/${this.props.dashedName}.component.js`),
+      this.destinationPath(`${this.config.get('componentDirectory')}/${this.props.dashedName}/${this.props.dashedName}.component.js`),
       {dashedName: this.props.dashedName, lowerCamelCaseName: this.props.lowerCamelCaseName}
     );
     this.fs.copyTpl( this.templatePath('component/index.scss'),
-      this.destinationPath(`./${this.props.dashedName}/${this.props.dashedName}.scss`),
+      this.destinationPath(`${this.config.get('componentDirectory')}/${this.props.dashedName}/${this.props.dashedName}.scss`),
       {dashedName: this.props.dashedName}
     );
     this.fs.copyTpl( this.templatePath('component/index.html'),
-      this.destinationPath(`./${this.props.dashedName}/${this.props.dashedName}.html`),
+      this.destinationPath(`${this.config.get('componentDirectory')}/${this.props.dashedName}/${this.props.dashedName}.html`),
       {dashedName: this.props.dashedName}
     );
   }
